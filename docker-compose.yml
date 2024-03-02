@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  wb:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+      - nats-streaming
+  nats-streaming:
+    image: nats-streaming:0.24.6
+    container_name: nats_streaming
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+  db:
+    image: postgres:14.4
+    environment:
+      POSTGRES_DB: "Orders"
+      POSTGRES_PASSWORD: "qwerty"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5436:5432"

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Order</title>
+</head>
+<body>
+<h3>Order</h3>
+<ul>
+  <li>OrderUid: {{ .OrderUid }} </li>
+  <li>TrackNumber: {{ .TrackNumber }} </li>
+  <li>Entry: {{ .Entry }} </li>
+  <li>Delivery:
+    <ul>
+      <li>Name: {{ .Delivery.Name }}</li>
+      <li>Phone: {{ .Delivery.Phone }}</li>
+      <li>ZIP: {{ .Delivery.Zip }}</li>
+      <li>City: {{ .Delivery.City }}</li>
+      <li>Address: {{ .Delivery.Address }}</li>
+      <li>Region: {{ .Delivery.Region }}</li>
+      <li>Email: {{ .Delivery.Email }}</li>
+    </ul> </li>
+  <li>Payment: {
+    <ul>
+      <li>Transaction: {{ .Payment.Transaction }}</li>
+      <li>RequestID: {{ .Payment.RequestId }}</li>
+      <li>Currency: {{ .Payment.Currency }}</li>
+      <li>Provider: {{ .Payment.Provider }}</li>
+      <li>Amount: {{ .Payment.Amount }}</li>
+      <li>PaymentDt: {{ .Payment.PaymentDt }}</li>
+      <li>Bank: {{ .Payment.Bank }}</li>
+      <li>DeliveryCost: {{ .Payment.DeliveryCost }}</li>
+      <li>GoodsTotal: {{ .Payment.GoodsTotal }}</li>
+      <li>CustomFee: {{ .Payment.CustomFee }}</li>
+    </ul></li>
+  <li>Items:
+    <ul>
+      {{range .Items}}<li>ChrtID: {{ .ChrtId }}</li>
+      <li>TrackNumber: {{ .TrackNumber }}</li>
+      <li>Price: {{ .Price }}</li>
+      <li>RID: {{ .Rid }}</li>
+      <li>Name: {{ .Name }}</li>
+      <li>Sale: {{ .Sale }}</li>
+      <li>Size: {{ .Size }}</li>
+      <li>TotalPrice: {{ .TotalPrice }}</li>
+      <li>NmID: {{ .NmId }}</li>
+      <li>Brand: {{ .Brand }}</li>
+      <li>Status: {{ .Status }}</li>
+      </li>{{end}}
+    </ul></li>
+  <li>Locale: {{ .Locale }} </li>
+  <li>InternalSignature: {{ .InternalSignature }} </li>
+  <li>Customer_id: {{ .CustomerId }} </li>
+  <li>Delivery_service: {{ .DeliveryService }} </li>
+  <li>Shardkey: {{ .Shardkey }} </li>
+  <li>SmID: {{ .SmId }} </li>
+  <li>DateCreated: {{ .DateCreated }} </li>
+  <li>OOFShard: {{ .OofShard }} </li>
+</ul>
+<br>
+<a href="/">Back</a>
+</body>
+</html>
